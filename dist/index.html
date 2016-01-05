@@ -1,0 +1,51 @@
+<!doctype html>
+<html data-ng-strict-di data-ng-app="app">
+<head>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NewsApp</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Condensed">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <script type="text/ng-template" id="main.html">
+
+        <article>
+
+            <h1 data-ng-bind="item.title"></h1>
+
+            <time data-ng-bind="item.published | date:'medium'"></time>
+
+            <section data-ng-bind="item.description"></section>
+
+            <figure data-ng-if="item.thumbnail">
+                <img real-src="{{item.thumbnail}}" data-ng-src="{{defaultImg}}" alt="{{item.title}}">
+            </figure>
+
+            <footer data-ng-if="item.go">
+                <button data-ng-if="item.i < 1" disabled>no previous</button>
+                <button data-ng-if="item.i > 0" data-ng-click="item.go(-1)">previous: {{item.i}} from {{news.length}}</button>
+
+                <button data-ng-if="item.i < (news.length - 1)" data-ng-click="item.go(+1)">next: {{item.i + 2}} from {{news.length}}</button>
+                <button data-ng-if="item.i >= (news.length - 1)" disabled>no next</button>
+            </footer>
+
+            <loading data-ng-if="!item"></loading>
+
+        </article>
+
+    </script>
+  
+</head>
+
+<body>
+    <div data-ng-view class="animation"></div>
+</body>
+</html>

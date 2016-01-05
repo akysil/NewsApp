@@ -1,0 +1,73 @@
+@import 'reset';
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+article > * {
+    display: block;
+    padding: 0 0 1rem 0;
+    line-height: 140%;
+}
+h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+time {
+    font-family: 'Roboto Condensed', sans-serif;
+    opacity: 0.5;
+}
+figure img {
+    width: 100%;
+}
+figcaption {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+}
+footer {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media all and (min-width: 600px) {
+    body > * {
+        margin: 0 auto;
+        max-width: calc(600px - 4%);
+    }
+}
+
+/* Preloader */
+
+loading {
+    min-height: 70vh;
+    background: #ffffff url('../img/loading.svg') no-repeat center center;
+}
+
+/* Animation */
+
+.animation {
+    padding: 2%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+.animation.ng-enter,
+.animation.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.animation.ng-enter {
+    opacity: 0;
+}
+.animation.ng-enter-active {
+    opacity: 1;
+}
+.animation.ng-leave {
+    opacity: 1;
+}
+.animation.ng-leave-active {
+    opacity: 0;
+}

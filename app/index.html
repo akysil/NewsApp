@@ -30,11 +30,8 @@
             </figure>
 
             <footer data-ng-if="item.go">
-                <button data-ng-if="item.i < 1" disabled>no previous</button>
-                <button data-ng-if="item.i > 0" data-ng-click="item.go(-1)">previous: {{item.i}} from {{news.length}}</button>
-
-                <button data-ng-if="item.i < (news.length - 1)" data-ng-click="item.go(+1)">next: {{item.i + 2}} from {{news.length}}</button>
-                <button data-ng-if="item.i >= (news.length - 1)" disabled>no next</button>
+                <button data-ng-click="item.go(-1)" ng-disabled="item.i < 1">previous: {{item.i}} from {{news.length}}</button>
+                <button data-ng-click="item.go(+1)" ng-disabled="item.i >= (news.length - 1)">next: {{item.i + 2}} from {{news.length}}</button>
             </footer>
 
             <loading data-ng-if="!item"></loading>

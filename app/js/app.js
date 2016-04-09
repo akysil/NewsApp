@@ -105,7 +105,8 @@ app.factory('Source', ['$http', function($http) {
 
     var httpConfig = {
         method: 'GET',
-        url: 'https://gist.githubusercontent.com/scruffyfox/559a1cb1ce49fff6abb4/raw/608c02cdb8cb7c53f69401cce5b9179f9afff403/api.json'
+        url: 'https://gist.githubusercontent.com/scruffyfox/559a1cb1ce49fff6abb4/raw/608c02cdb8cb7c53f69401cce5b9179f9afff403/api.json',
+        cache: true
     };
 
     return $http(httpConfig);
